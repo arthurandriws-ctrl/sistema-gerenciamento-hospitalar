@@ -1,19 +1,11 @@
-"""
-Estruturas usadas:
-- FILA   (collections.deque): triagem de pacientes (FIFO)
-- PILHA  (list): prontuários acessados recentemente (LIFO)
-- LISTA  (list): pacientes internados e leitos
-- ÁRVORE (dicionários aninhados): especialidades e diagnósticos
-"""
-
 from collections import deque
 
 ARQUIVO = "dados_sistema.txt"
 
-fila_triagem = deque()      # cada item: {"id", "nome", "prioridade"}
-pilha_prontuarios = []      # cada item: {"codigo", "paciente", "descricao"}; topo = fim da list
-lista_internados = []       # cada item: {"id", "nome", "leito", "estado"}
-arvore = {}                 # {"Especialidade": {"Subespecialidade": {"Diagnostico": {}}}}
+fila_triagem = deque()     
+pilha_prontuarios = []      
+lista_internados = []       
+arvore = {}                
 
 
 # Funções auxiliares de entrada
@@ -102,7 +94,6 @@ def pilha_atualizar():
     if not pilha_prontuarios:
         print("Pilha vazia.")
         return
-    # Em uma pilha só o topo é acessível
     pilha_prontuarios[-1]["descricao"] = ler_texto("Nova descrição do prontuário do topo: ")
     print("Topo atualizado.")
 
@@ -111,7 +102,7 @@ def pilha_remover():
     if not pilha_prontuarios:
         print("Pilha vazia.")
         return
-    removido = pilha_prontuarios.pop()  # desempilha do TOPO
+    removido = pilha_prontuarios.pop() 
     print(f"Prontuário removido: {removido['codigo']}")
 
 
@@ -162,7 +153,7 @@ def lista_remover():
     if p is None:
         print("Paciente não encontrado.")
         return
-    lista_internados.remove(p)  # alta hospitalar
+    lista_internados.remove(p)  
     print("Paciente removido (alta).")
 
 
@@ -199,7 +190,6 @@ def arvore_inserir():
 
 
 def imprimir_arvore(no, nivel=0):
-    """Impressão recursiva com indentação proporcional à profundidade."""
     for nome, filhos in no.items():
         print("  " * nivel + "- " + nome)
         imprimir_arvore(filhos, nivel + 1)
@@ -303,7 +293,6 @@ def carregar_dados():
 # Menus
 
 def submenu(titulo, inserir, listar, atualizar, remover):
-    """Submenu CRUD genérico: recebe as funções de cada estrutura."""
     while True:
         print(f"\n--- {titulo} ---")
         print("1 - Inserir\n2 - Listar\n3 - Atualizar\n4 - Remover\n0 - Voltar")
