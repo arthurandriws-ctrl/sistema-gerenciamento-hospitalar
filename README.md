@@ -15,7 +15,7 @@ python main.py
 
 (em alguns sistemas, `python3 main.py`)
 
-O sistema inicia **totalmente vazio**. Para guardar o que foi cadastrado, use a opção **5 - Salvar Dados**, que cria o arquivo `dados_sistema.txt` na mesma pasta do `main.py`. Em uma execução futura, use **6 - Carregar Dados** para restaurar tudo.
+O sistema inicia **totalmente vazio**. Para guardar o que foi cadastrado, use a opção **5 - Salvar Dados**, que cria o arquivo `dados_sistema.txt`. Em uma execução futura, use **6 - Carregar Dados** para restaurar tudo.
 
 ### Roteiro rápido de teste
 
