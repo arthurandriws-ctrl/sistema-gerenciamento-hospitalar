@@ -2,10 +2,10 @@ from collections import deque
 
 ARQUIVO = "dados_sistema.txt"
 
-fila_triagem = deque()     
-pilha_prontuarios = []      
-lista_internados = []       
-arvore = {}                
+fila_triagem = deque()      # FILA: triagem (FIFO)
+pilha_prontuarios = []      # PILHA: prontuários recentes (LIFO), topo = fim da lista
+lista_internados = []       # LISTA: pacientes internados
+arvore = {}                 # ÁRVORE: dicionários aninhados
 
 
 # Funções auxiliares de entrada
