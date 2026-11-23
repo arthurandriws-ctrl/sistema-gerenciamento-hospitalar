@@ -1,6 +1,7 @@
+import os
 from collections import deque
 
-ARQUIVO = "dados_sistema.txt"
+ARQUIVO = os.path.join(os.path.dirname(os.path.abspath(__file__)), "dados_sistema.txt")
 
 fila_triagem = deque()      # FILA: triagem (FIFO)
 pilha_prontuarios = []      # PILHA: prontuários recentes (LIFO), topo = fim da lista
@@ -102,7 +103,7 @@ def pilha_remover():
     if not pilha_prontuarios:
         print("Pilha vazia.")
         return
-    removido = pilha_prontuarios.pop() 
+    removido = pilha_prontuarios.pop()
     print(f"Prontuário removido: {removido['codigo']}")
 
 
@@ -153,7 +154,7 @@ def lista_remover():
     if p is None:
         print("Paciente não encontrado.")
         return
-    lista_internados.remove(p)  
+    lista_internados.remove(p)
     print("Paciente removido (alta).")
 
 
